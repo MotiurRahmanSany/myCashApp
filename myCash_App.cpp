@@ -3,13 +3,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class MyCash{
-
-};
-
 class Member{
     string name, mobile;
     int pin;
+    double balance;
+public:
+    void setData(string name, string mobile, int pin){
+        this->mobile = mobile;
+        this->name = name;
+        this->pin = pin;
+    }
+    string getMobile(){
+        return mobile;
+    }
+
 };
 
 class History{
@@ -107,7 +114,8 @@ int main(){
                 Register();
                 break;
             case 3:
-                cout << "Okay come again :)";
+                cout << "Okay come again :)" << endl;
+                cout << "Exiting the app" << endl;
                 exit(0);
 
         }
