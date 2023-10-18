@@ -4,10 +4,11 @@
 using namespace std;
 
 class Member{
+public:
     string name, mobile;
     int pin;
     double balance;
-public:
+    int id;
     void setData(string name, string mobile, int pin){
         this->mobile = mobile;
         this->name = name;
@@ -19,20 +20,127 @@ public:
 
 };
 
-class History{
+vector<Member> user;
 
-};
-
-void Update_Member(){
+void History(){
 
 }
 
-void Delete_Member(){
+void Check_Balance(){
 
+}
+
+void Pay_Bill(){
+
+}
+
+void Mobile_Recharge(){
+
+}
+
+void Add_Money(){
+
+}
+
+void Send_Money(){
+
+}
+
+void Recharge(){
+
+}
+
+void Update_User(){
+    cout << "Enter id of the member: ";
+    int id;
+    cin >> id;
+    int flag = false;
+    auto it = find(user.begin(), user.end(), id);
+    if(it == user.end())
+        cout << "Member doesn't exist";
+    else{
+        cout << "What do you want to update: 1. name 2. mobile or 3. pin";
+        cout << "Enter your option: ";
+        int op;
+        cin >> op;
+        switch(op){
+            case 1:
+            {
+                string name;
+                getline(cin >> ws, name);
+                
+            }
+        }
+    }
+
+
+}
+
+void Remove_User(){
+     cout << "Enter id of the member: ";
+    int id;
+    cin >> id;
+    int flag = false;
+    auto it = find(user.begin(), user.end(), id);
+    if(it != user.end())
+        user.erase(it);
+    else cout << "Member doesn't exist";
 }
 
 
 void DashBoard(){
+    cout << "****MyCash Menu****" << endl;
+    cout << "Your mobile number is: ";
+    cout << endl; // TODO: mobile should be visible here of user
+    cout << "1. Add Money" << endl;
+    cout << "2. Send Money" << endl;
+    cout << "3. Mobile Recharge" << endl;
+    cout << "4. Pay Bill" << endl;
+    cout << "5. Check Balance" << endl;
+    cout << "6. Update Me" << endl;
+    cout << "7. Remove Me" << endl;
+    cout <<  "8. History" << endl;
+    cout << "9. Logout" << endl;
+    int op;
+    cin >> op;
+    switch(op){
+        case 1:
+            Add_Money();
+            break;
+        case 2: 
+            Send_Money();
+            break;
+        case 3:
+            Recharge();
+            break;
+        case 4:
+            Pay_Bill();
+            break;
+        case 5:
+            Check_Balance();
+            break;
+        case 6:
+            Update_User();
+            break;
+        case 7:
+            Remove_User();
+        case 8:
+            History();
+        case 9:
+            Exit();
+        default:
+            cout << "Invalid input" << endl;
+
+    }
+}
+
+void Exit(){
+    cout << "Ok come back again :)" << endl;
+    cout << "Exiting the program " << endl;
+
+    return;
+}
+void Display(){
 
 }
 
@@ -94,7 +202,7 @@ void Register(){
     cout << "Registration is successful" << endl;
     cout << "Entering Dashboard" << endl;
 
-    // TODO: Have to add some time here before entering the dashboard...
+    // TODO: Have to add some time here before entering the dashboard appears...
 
     DashBoard();
 
@@ -114,6 +222,8 @@ int main(){
                 Register();
                 break;
             case 3:
+    // TODO: Have to add some time here before entering the dashboard appears...
+
                 cout << "Okay come again :)" << endl;
                 cout << "Exiting the app..." << endl;
                 exit(0);
