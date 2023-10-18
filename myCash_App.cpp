@@ -115,7 +115,7 @@ int main(){
                 break;
             case 3:
                 cout << "Okay come again :)" << endl;
-                cout << "Exiting the app" << endl;
+                cout << "Exiting the app..." << endl;
                 exit(0);
 
         }
