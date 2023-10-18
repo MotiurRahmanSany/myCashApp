@@ -8,7 +8,7 @@ public:
     string name, mobile;
     int pin;
     double balance;
-    int id;
+    int Id;
     void setData(string name, string mobile, int pin){
         this->mobile = mobile;
         this->name = name;
@@ -92,45 +92,47 @@ void DashBoard(){
     cout << "****MyCash Menu****" << endl;
     cout << "Your mobile number is: ";
     cout << endl; // TODO: mobile should be visible here of user
-    cout << "1. Add Money" << endl;
-    cout << "2. Send Money" << endl;
-    cout << "3. Mobile Recharge" << endl;
-    cout << "4. Pay Bill" << endl;
-    cout << "5. Check Balance" << endl;
+    cout << "1. Check Balance" << endl;
+    cout << "2. Add Money" << endl;
+    cout << "3. Send Money" << endl;
+    cout << "4. Mobile Recharge" << endl;
+    cout << "5. Pay Bill" << endl;
     cout << "6. Update Me" << endl;
     cout << "7. Remove Me" << endl;
-    cout <<  "8. History" << endl;
+    cout << "8. History" << endl;
     cout << "9. Logout" << endl;
     int op;
-    cin >> op;
-    switch(op){
-        case 1:
-            Add_Money();
-            break;
-        case 2: 
-            Send_Money();
-            break;
-        case 3:
-            Recharge();
-            break;
-        case 4:
-            Pay_Bill();
-            break;
-        case 5:
-            Check_Balance();
-            break;
-        case 6:
-            Update_User();
-            break;
-        case 7:
-            Remove_User();
-        case 8:
-            History();
-        case 9:
-            Exit();
-        default:
-            cout << "Invalid input" << endl;
+    while(cin >> op){
 
+        switch(op){
+            case 1:
+                Check_Balance();
+                break;
+            case 2: 
+                Add_Money();
+                break;
+            case 3:
+                Send_Money();
+                break;
+            case 4:
+                Recharge();
+                break;
+            case 5:
+                Pay_Bill();
+                break;
+            case 6:
+                Update_User();
+                break;
+            case 7:
+                Remove_User();
+            case 8:
+                History();
+            case 9:
+                Exit();
+            default:
+                cout << "Invalid input" << endl;
+
+        }
     }
 }
 
@@ -139,9 +141,6 @@ void Exit(){
     cout << "Exiting the program " << endl;
 
     return;
-}
-void Display(){
-
 }
 
 int Enter(){
@@ -174,10 +173,15 @@ int OTP_Generator(){
     return otp;
 }
 
+int idGenerator(){
+    int lb = 1000, ub = 9999;
+    int id = ((rand() % (ub - lb + 1)) + lb);
+    return id;
+}
+
 void Register(){
     string name, mobile;
     int pin;
-    cout << "Enter your name: ";
     getline(cin >> ws, name);
     cout << "Enter your 11 digit mobile number: ";
     cin >> mobile;
@@ -199,7 +203,15 @@ void Register(){
         cout << "OTP didn't match. Good luck next time :(" << endl;
         return;
     }
+    Member member;
+    member.name = name;
+    member.mobile = mobile;
+    member.pin = pin;
+    int id = idGenerator();
+    member.Id = id;
+    user.push_back(member);
     cout << "Registration is successful" << endl;
+    cout << "Your id is: " << id << " Never share this with others" << endl;
     cout << "Entering Dashboard" << endl;
 
     // TODO: Have to add some time here before entering the dashboard appears...
@@ -208,6 +220,10 @@ void Register(){
 
 
 
+}
+
+void Display(){
+    
 }
 
 int main(){
