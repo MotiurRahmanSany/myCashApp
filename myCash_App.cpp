@@ -87,6 +87,12 @@ void Remove_User(){
     else cout << "Member doesn't exist";
 }
 
+void Exit(){
+    cout << "Ok come back again :)" << endl;
+    cout << "Exiting the program " << endl;
+
+    return;
+}
 
 void DashBoard(){
     cout << "****MyCash Menu****" << endl;
@@ -134,13 +140,6 @@ void DashBoard(){
 
         }
     }
-}
-
-void Exit(){
-    cout << "Ok come back again :)" << endl;
-    cout << "Exiting the program " << endl;
-
-    return;
 }
 
 int Enter(){
@@ -223,7 +222,7 @@ void Register(){
 }
 
 void Display(){
-    
+
 }
 
 int main(){
@@ -240,7 +239,7 @@ int main(){
             case 3:
     // TODO: Have to add some time here before entering the dashboard appears...
 
-                cout << "Okay come again :)" << endl;
+                cout << "Okay come back again :)" << endl;
                 cout << "Exiting the app..." << endl;
                 exit(0);
 
