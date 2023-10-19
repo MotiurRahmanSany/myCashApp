@@ -9,13 +9,23 @@ public:
     int pin;
     double balance;
     int Id;
-    void setData(string name, string mobile, int pin){
+    void setData(string name, string mobile, int pin, int Id){
         this->mobile = mobile;
         this->name = name;
         this->pin = pin;
+        this->Id = Id;
     }
     string getMobile(){
         return mobile;
+    }
+    Member(){
+
+    }
+    Member(string name, string mobile, int pin, int Id){
+        this->name = name;
+        this->mobile = mobile;
+        this->pin = pin;
+        this->Id = Id;
     }
 
 };
@@ -82,8 +92,16 @@ void Remove_User(){
     cin >> id;
     int flag = false;
     auto it = find(user.begin(), user.end(), id);
-    if(it != user.end())
-        user.erase(it);
+    if(it != user.end()){
+        cout << "Give the user pin number: ";
+        int pin;
+        cin >> pin;
+        if(it->pin == pin){
+            user.erase(it);
+            cout << "User Removed successfully!" << endl;
+        }
+        else cout << "Pin doesn't match" << endl;
+    }
     else cout << "Member doesn't exist";
 }
 
@@ -160,7 +178,7 @@ void Login_Form(){
     cin >> mobile;
     cout << "Enter your pin: ";
     cin >> pin;
-    cout << "Login is Successful" << endl;
+    cout << "Login Successful" << endl;
 
     DashBoard();
 
@@ -202,27 +220,32 @@ void Register(){
         cout << "OTP didn't match. Good luck next time :(" << endl;
         return;
     }
-    Member member;
-    member.name = name;
-    member.mobile = mobile;
-    member.pin = pin;
     int id = idGenerator();
-    member.Id = id;
+    Member member(name, mobile, pin, id);
     user.push_back(member);
     cout << "Registration is successful" << endl;
-    cout << "Your id is: " << id << " Never share this with others" << endl;
+    cout << "Your id is: " << id << " Never share your and pin and id with others" << endl;
     cout << "Entering Dashboard" << endl;
 
     // TODO: Have to add some time here before entering the dashboard appears...
 
     DashBoard();
 
-
-
 }
 
 void Display(){
+    if(user.size() == 0)
+        cout << "NO user in the database" << endl;
+    else{
+        for(auto &x : user){
+            cout << "User id: " << x.Id << '\n';
+            cout << "User name: " << x.name << endl;
+            cout << "User mobile: " << x.mobile << endl;
+            cout << "User balance: " << x.balance << endl;
 
+            cout << endl << endl;
+        }
+    }
 }
 
 int main(){
