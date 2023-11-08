@@ -4,6 +4,7 @@ partial_soln.cpp
 00000.cpp
 tutorial1.cpp
 cgpt.cpp
+cgpt2.cpp
 # Prerequisites
 *.d
 
