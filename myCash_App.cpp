@@ -3,11 +3,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+#define ll long long
+
 class Member{
+
+    ll balance;
 public:
     string name, mobile;
     int pin;
-    double balance;
     int Id;
     void setData(string name, string mobile, int pin, int Id){
         this->mobile = mobile;
@@ -27,11 +30,15 @@ public:
         this->pin = pin;
         this->Id = Id;
     }
+    ll getBalance()const;
 
 };
 
 vector<Member> user;
 
+ll Member::getBalance() const{
+    return balance;
+}
 void History(){
 
 }
@@ -53,7 +60,13 @@ void Add_Money(){
 }
 
 void Send_Money(){
-
+    cout << "Enter the recipient's number: ";
+    string number;
+    cin >> number;
+    cout << "Enter amount: ";
+    ll amount;
+    cin >> amount;
+    if(amount <= getBalance())
 }
 
 void Recharge(){
@@ -227,7 +240,7 @@ void Register(){
     cout << "Your id is: " << id << " Never share your and pin and id with others" << endl;
     cout << "Entering Dashboard" << endl;
 
-    // TODO: Have to add some time here before entering the dashboard appears...
+    // TODO: Have to add some time here before the dashboard appears...
 
     DashBoard();
 
@@ -241,7 +254,7 @@ void Display(){
             cout << "User id: " << x.Id << '\n';
             cout << "User name: " << x.name << endl;
             cout << "User mobile: " << x.mobile << endl;
-            cout << "User balance: " << x.balance << endl;
+            x.getBalance();
 
             cout << endl << endl;
         }
@@ -260,7 +273,7 @@ int main(){
                 Register();
                 break;
             case 3:
-    // TODO: Have to add some time here before entering the dashboard appears...
+    // TODO: Have to add some time here before the dashboard appears...
 
                 cout << "Okay come back again :)" << endl;
                 cout << "Exiting the app..." << endl;
