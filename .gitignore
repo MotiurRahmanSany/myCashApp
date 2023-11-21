@@ -5,6 +5,8 @@ partial_soln.cpp
 tutorial1.cpp
 cgpt.cpp
 cgpt2.cpp
+my_cash.cpp
+members_data.txt
 # Prerequisites
 *.d
 
