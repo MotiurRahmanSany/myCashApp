@@ -37,7 +37,7 @@ double getBalance(Member const &obj){
 }
 
 void setBalance(Member const &obj, double x){
-    // obj.balance += x;
+    // 
 }
 
 vector<Member> members;
